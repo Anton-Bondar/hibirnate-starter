@@ -1,9 +1,6 @@
 package com.dmdev.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,6 +22,6 @@ public final class User {
     @Column(name = "birth_date")
     private LocalDate birthDate;
     private Integer age;
-
-
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }

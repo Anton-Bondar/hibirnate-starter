@@ -1,6 +1,7 @@
 package com.dmdev;
 
 
+import com.dmdev.entity.Role;
 import com.dmdev.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -23,6 +24,7 @@ public class HibernateStarter {
                     .username("ivan@gmail.com")
                     .firstname("Ivan")
                     .username("Ivanov")
+                    .role(Role.ADMIN)
                     .birthDate(LocalDate.of(2000, 1, 19))
                     .build();
 
