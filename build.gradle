@@ -17,6 +17,8 @@ repositories {
 dependencies {
     implementation 'org.hibernate:hibernate-core:6.2.1.Final'
     implementation 'org.postgresql:postgresql:42.6.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+    implementation 'org.slf4j:slf4j-log4j12:2.0.7'
 
     compileOnly 'org.projectlombok:lombok:1.18.26'
     annotationProcessor 'org.projectlombok:lombok:1.18.26'

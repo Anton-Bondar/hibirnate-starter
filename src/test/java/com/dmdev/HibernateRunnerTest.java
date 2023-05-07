@@ -1,5 +1,6 @@
 package com.dmdev;
 
+import com.dmdev.entity.Birthday;
 import com.dmdev.entity.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
@@ -16,7 +17,7 @@ import java.util.stream.Collectors;
 import static java.util.Arrays.*;
 import static java.util.Optional.*;
 
-class HibernateStarterTest {
+class HibernateRunnerTest {
 
     @Test
     void checkReflectionApi() throws SQLException, IllegalAccessException {
@@ -25,7 +26,7 @@ class HibernateStarterTest {
                 .username("ivan@gmail.com")
                 .firstname("Ivan")
                 .username("Ivanov")
-                .birthDate(LocalDate.of(2000, 1, 19))
+                .birthDate(new Birthday(LocalDate.of(2000, 1, 19)))
                 .build();
 
         String sql = """
