@@ -1,15 +1,9 @@
 package com.dmdev.entity;
 
-import com.dmdev.converter.BirthdayConverter;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
-
-import java.util.Map;
 
 @Data
 @NoArgsConstructor
@@ -19,15 +13,19 @@ import java.util.Map;
 @Table(name = "users", schema = "public")
 public final class User {
     @Id
-    private String username;
-    private String firstname;
-    private String lastname;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-//    @Convert(converter = BirthdayConverter.class)
-    @Column(name = "birth_date")
-    private Birthday birthDate;
+    @Column(unique = true)
+    private String username;
+//    @Embedded
+    private PersonalInfo personalInfo;
     @Enumerated(EnumType.STRING)
     private Role role;
     @JdbcTypeCode(SqlTypes.JSON)
     private String info;
+
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
 }
